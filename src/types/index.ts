@@ -1,4 +1,5 @@
 export interface Event {
+  location: string | string[];
   id: string;
   title: string;
   description: string;
@@ -13,6 +14,7 @@ export interface Service {
   description: string;
   icon: string;
   features: string[];
+    image: string; 
 }
 
 export interface Translation {

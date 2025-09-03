@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const heroSlides = [
   {
-    image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: 'https://images.unsplash.com/photo-1519167758481-83f29c8498c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     key: 'slide1'
   },
   {
-    image: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
     key: 'slide2'
   },
   {
-    image: 'https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
     key: 'slide3'
   }
 ];
@@ -39,21 +39,26 @@ export function HeroCarousel() {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
-      <AnimatePresence mode="wait">
+    <div className="relative h-screen overflow-hidden bg-black">
+      <AnimatePresence>
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           <div
             className="w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
+            style={{ 
+              backgroundImage: `url('${heroSlides[currentSlide].image}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
           >
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/60" />
           </div>
         </motion.div>
       </AnimatePresence>
@@ -85,7 +90,9 @@ export function HeroCarousel() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <button className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
+            <button
+              className="inline-block px-8 py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold rounded-lg transition-colors"
+            >
               {t('common.getQuote')}
             </button>
             <button className="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition-colors">
@@ -116,7 +123,7 @@ export function HeroCarousel() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              currentSlide === index ? 'bg-orange-500' : 'bg-white/50'
+              index === currentSlide ? 'bg-gold-300' : 'bg-white/50'
             }`}
           />
         ))}

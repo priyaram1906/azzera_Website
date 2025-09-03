@@ -30,7 +30,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-golden-500;
+    @apply bg-gold-500;
   }
 
   /* RTL Support */
@@ -48,17 +48,17 @@
   input:focus,
   textarea:focus,
   select:focus {
-    @apply outline-none ring-2 ring-golden-500/50;
+    @apply outline-none ring-2 ring-gold-500/50;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-golden-500 hover:bg-golden-600 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105;
+    @apply px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border-2 border-golden-500 text-golden-500 hover:bg-golden-500 hover:text-white font-semibold rounded-lg transition-colors;
+    @apply px-6 py-3 border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-semibold rounded-lg transition-colors;
   }
 
   .card {
@@ -76,15 +76,15 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-golden-500 to-golden-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gold-500 to-gold-600 bg-clip-text text-transparent;
   }
 
-  .bg-gradient-primary {
-    @apply bg-gradient-to-r from-golden-500 to-golden-600;
+  .bg-gradient-gold {
+    @apply bg-gradient-to-r from-gold-500 to-gold-600;
   }
 
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 20px rgba(107, 114, 128, 0.3);
   }
 
   .backdrop-blur-custom {
