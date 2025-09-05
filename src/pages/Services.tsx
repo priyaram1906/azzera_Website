@@ -2,282 +2,125 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import {
-  CheckCircle,
-  Heart,
-  Building2,
-  Monitor,
-  Music,
-  Package,
-  Palette,
-  ArrowRight,
-  Sparkles
-} from 'lucide-react';
-
-interface Service {
-  id: string;
-  title: string;
-  description: string;
-  features: string[];
-  icon: string;
-  image: string;
-}
-
-const services: Service[] = [
-  {
-    id: '1',
-    title: 'Wedding Planning',
-    description: 'Luxury wedding planning services creating magical moments for your special day with exquisite attention to every detail.',
-    icon: 'Heart',
-    features: [
-      'Complete wedding coordination',
-      'Venue selection and decoration',
-      'Catering and menu planning',
-      'Photography and videography',
-      'Entertainment coordination',
-      'Honeymoon planning',
-    ],
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80',
-  },
-  {
-    id: '2',
-    title: 'Corporate Events',
-    description: 'Professional corporate gatherings, conferences, and business celebrations designed to strengthen relationships and achieve your business objectives.',
-    icon: 'Building2',
-    features: [
-      'Conference planning and management',
-      'Product launches and presentations',
-      'Team building events',
-      'Award ceremonies',
-      'Corporate retreats',
-      'Executive meetings',
-    ],
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    id: '3',
-    title: 'Event Technologies',
-    description: 'Cutting-edge technology solutions for modern events including AV equipment, live streaming, and interactive experiences.',
-    icon: 'Monitor',
-    features: [
-      'Audio-visual equipment setup',
-      'Live streaming services',
-      'Interactive displays',
-      'Event apps and registration',
-      'LED walls and projections',
-      'Sound system management',
-    ],
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    id: '4',
-    title: 'Concerts',
-    description: 'Professional concert and music event production with world-class sound, lighting, and stage management.',
-    icon: 'Music',
-    features: [
-      'Stage design and setup',
-      'Professional sound systems',
-      'Lighting design',
-      'Artist coordination',
-      'Security management',
-      'Ticket management',
-    ],
-    image: 'https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    id: '5',
-    title: 'Rentals',
-    description: 'Comprehensive rental services for furniture, decor, equipment, and everything needed for your perfect event.',
-    icon: 'Package',
-    features: [
-      'Furniture and seating',
-      'Tents and marquees',
-      'Lighting equipment',
-      'Audio-visual gear',
-      'Catering equipment',
-      'Decorative items',
-    ],
-    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80',
-  },
-  {
-    id: '6',
-    title: 'Interior Designing',
-    description: 'Creative interior design and decoration services that transform spaces into stunning event venues.',
-    icon: 'Palette',
-    features: [
-      'Space planning and layout',
-      'Theme development',
-      'Floral arrangements',
-      'Custom decorations',
-      'Lighting design',
-      'Color coordination',
-    ],
-    image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80',
-  },
-];
-
-const iconMap = {
-  Heart,
-  Building2,
-  Monitor,
-  Music,
-  Package,
-  Palette,
-};
+import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { services, iconMap } from '../data/services';
 
 const Services: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Standardized Hero Section - Same size as About page */}
+      {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20"></div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20 pointer-events-none"
+        />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gold-500/20 backdrop-blur-md rounded-full mb-6 border border-gold-500/30">
-              <Heart className="w-10 h-10 text-gold-500" />
+              {React.createElement(iconMap['Heart'], {
+                className: 'w-10 h-10 text-gold-500',
+              })}
             </div>
             <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6">
-              Premium Services
+              {t('services.title') || 'Premium Services'}
             </h1>
             <p className="text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Elevate your events with our exquisite solutions, crafted to create unforgettable moments with sophistication and elegance.
+              {t('services.subtitle') ||
+                'Elevate your events with our exquisite solutions, crafted to create unforgettable moments with sophistication and elegance.'}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid with Zigzag Layout */}
+      {/* Services List */}
       <section className="py-20 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/diagmonds.png')] opacity-10"></div>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url(\'https://www.transparenttextures.com/patterns/diagmonds.png\')] opacity-10" />
           <Sparkles className="absolute top-20 left-1/4 text-gold-500/20 w-8 h-8" />
           <Sparkles className="absolute bottom-40 right-1/3 text-gold-500/30 w-6 h-6" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="flex justify-center items-center mb-4">
-              <div className="w-16 h-0.5 bg-gold-500 mr-4"></div>
-              <span className="text-gold-500 uppercase tracking-wider font-semibold">Our Expertise</span>
-              <div className="w-16 h-0.5 bg-gold-500 ml-4"></div>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-              Comprehensive <span className="text-gold-500">Services</span>
-            </h2>
-            <p className="text-gray-400 text-xl max-w-3xl mx-auto">
-              Discover our range of premium event management services designed to bring your vision to life
-            </p>
-          </motion.div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+          {services.map((service, index) => {
+            const IconComponent = iconMap[service.icon];
+            const isEven = index % 2 === 0;
+            const tiltDegree = isEven ? 2 : -2;
 
-          {/* Zigzag Layout Container */}
-          <div className="space-y-32">
-            {services.map((service, index) => {
-              const IconComponent = iconMap[service.icon as keyof typeof iconMap];
-              const isEven = index % 2 === 0;
-              const tiltDegree = isEven ? 2 : -2; // Slight tilt for visual interest
-              
-              return (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: index * 0.1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  className={`relative flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-10`}
-                >
-                  {/* Image Container with Tilt */}
-                  <div className="lg:w-1/2 relative group">
-                    {/* Decorative Border Element */}
-                    <motion.div 
-                      className="absolute -inset-4 border-2 border-gold-500/30 rounded-2xl"
-                      initial={{ rotate: tiltDegree * 1.5 }}
-                      whileHover={{ 
-                        rotate: tiltDegree * 2,
-                        transition: { duration: 0.3 }
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                viewport={{ once: true, margin: '-100px' }}
+                className={`relative flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-10`}
+              >
+                {/* Image container with tilt and hover */}
+                <div className="lg:w-1/2 relative group">
+                  <motion.div
+                    className="absolute -inset-4 border-2 border-gold-500/30 rounded-2xl"
+                    initial={{ rotate: tiltDegree * 1.5 }}
+                    whileHover={{ rotate: tiltDegree * 2, transition: { duration: 0.3 } }}
+                  />
+                  <motion.div
+                    className="relative h-96 overflow-hidden rounded-2xl"
+                    initial={{ rotate: tiltDegree }}
+                    whileHover={{ rotate: isEven ? 3 : -3, scale: 1.02, transition: { duration: 0.3 } }}
+                  >
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      onError={e => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80';
                       }}
-                    ></motion.div>
-                    
-                    {/* Tilted Image Container */}
-                    <motion.div 
-                      className="relative h-96 overflow-hidden rounded-2xl"
-                      initial={{ rotate: tiltDegree }}
-                      whileHover={{ 
-                        rotate: isEven ? 3 : -3,
-                        scale: 1.02,
-                        transition: { duration: 0.3 }
-                      }}
-                    >
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        onError={(e) => {
-                          // Fallback image if the original fails to load
-                          e.currentTarget.src = 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80';
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute top-6 left-6">
-                        <div className="flex items-center space-x-2 bg-gold-500/90 backdrop-blur-sm px-4 py-3 rounded-lg">
-                          {IconComponent && <IconComponent className="w-6 h-6 text-black" />}
-                          <span className="text-black font-semibold">{service.title}</span>
-                        </div>
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute top-6 left-6">
+                      <div className="flex items-center space-x-2 bg-gold-500/90 backdrop-blur-sm px-4 py-3 rounded-lg">
+                        {IconComponent && <IconComponent className="w-6 h-6 text-black" />}
+                        <span className="text-black font-semibold">{service.title}</span>
                       </div>
-                    </motion.div>
-                    
-                    {/* Decorative Elements */}
-                    <div className={`absolute ${isEven ? '-bottom-6 -left-6' : '-bottom-6 -right-6'} w-24 h-24 bg-gold-500/20 rounded-full -z-10`}></div>
-                    <div className={`absolute ${isEven ? '-top-4 -right-4' : '-top-4 -left-4'} w-16 h-16 bg-gold-500/10 rounded-full -z-10`}></div>
-                    
-                    {/* Floating Sparkles */}
-                    <Sparkles className={`absolute ${isEven ? 'top-2 right-2' : 'top-2 left-2'} text-gold-500/40 w-5 h-5`} />
-                    <Sparkles className={`absolute ${isEven ? 'bottom-2 left-2' : 'bottom-2 right-2'} text-gold-500/30 w-4 h-4`} />
-                  </div>
-
-                  {/* Content Container - No Tilt */}
-                  <div className="lg:w-1/2">
-                    <div className="p-6">
-                      <h3 className="text-3xl font-bold text-white mb-4">{service.title}</h3>
-                      <p className="text-gray-300 mb-6 leading-relaxed text-lg">
-                        {service.description}
-                      </p>
-                      <div className="space-y-4 mb-8">
-                        {service.features.slice(0, 4).map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-start space-x-3">
-                            <CheckCircle className="w-6 h-6 text-gold-500 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300 text-base">{feature}</span>
-                          </div>
-                        ))}
-                        {service.features.length > 4 && (
-                          <div className="text-gold-500 text-base font-medium">
-                            +{service.features.length - 4} more features
-                          </div>
-                        )}
-                      </div>
-                      <Link
-                        to={`/services/${service.id}`}
-                        className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-black font-semibold rounded-xl transition-all duration-300 group/button text-lg"
-                      >
-                        Learn More
-                        <ArrowRight className="ml-3 w-5 h-5 group-hover/button:translate-x-2 transition-transform" />
-                      </Link>
                     </div>
+                  </motion.div>
+                  <div className={`absolute ${isEven ? '-bottom-6 -left-6' : '-bottom-6 -right-6'} w-24 h-24 bg-gold-500/20 rounded-full -z-10`}></div>
+                  <div className={`absolute ${isEven ? '-top-4 -right-4' : '-top-4 -left-4'} w-16 h-16 bg-gold-500/10 rounded-full -z-10`}></div>
+                  <Sparkles className={`absolute ${isEven ? 'top-2 right-2' : 'top-2 left-2'} text-gold-500/40 w-5 h-5`} />
+                  <Sparkles className={`absolute ${isEven ? 'bottom-2 left-2' : 'bottom-2 right-2'} text-gold-500/30 w-4 h-4`} />
+                </div>
+
+                {/* Content container */}
+                <div className="lg:w-1/2 p-6">
+                  <h3 className="text-3xl font-bold text-white mb-4">{service.title}</h3>
+                  <p className="text-gray-300 mb-6 leading-relaxed text-lg">{service.description}</p>
+                  <div className="space-y-4 mb-8">
+                    {service.features.slice(0, 4).map((feature, i) => (
+                      <div key={i} className="flex items-start space-x-3">
+                        <CheckCircle className="w-6 h-6 text-gold-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300 text-base">{feature}</span>
+                      </div>
+                    ))}
+                    {service.features.length > 4 && (
+                      <div className="text-gold-500 text-base font-medium">
+                        +{service.features.length - 4} more features
+                      </div>
+                    )}
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                  <Link
+                    to={`/services/${service.id}`}
+                    className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-black font-semibold rounded-xl transition-all duration-300 group/button text-lg"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-3 w-5 h-5 group-hover/button:translate-x-2 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 

@@ -21,6 +21,7 @@ export default {
           950: '#46390f',
         },
       },
+
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },

@@ -57,7 +57,7 @@ export function Header() {
               <span className="text-white font-bold text-2xl">A</span>
             </div>
             <span className="text-2xl font-bold text-white">
-              Azzera Events
+              Alwadi Events
             </span>
           </Link>
 

@@ -21,10 +21,10 @@ export const en = {
     }
   },
   home: {
-    aboutTitle: 'About Azzera Events',
-    aboutText: 'With over a decade of experience in luxury event management, Azzera Events specializes in creating extraordinary experiences that exceed expectations. Our team of dedicated professionals combines creativity, precision, and attention to detail to deliver events that leave lasting impressions.',
+    aboutTitle: 'About Alwadi Events',
+    aboutText: 'With over a decade of experience in luxury event management, Alwadi Events specializes in creating extraordinary experiences that exceed expectations. Our team of dedicated professionals combines creativity, precision, and attention to detail to deliver events that leave lasting impressions.',
     servicesTitle: 'Our Services',
-    whyChooseTitle: 'Why Choose Azzera Events',
+    whyChooseTitle: 'Why Choose Alwadi Events',
     whyChooseItems: [
       'Expert team with 10+ years experience',
       'Full-service event management',
@@ -35,7 +35,7 @@ export const en = {
     ]
   },
   about: {
-    title: 'About Azzera Events',
+    title: 'About Alwadi Events',
     subtitle: 'Crafting Extraordinary Experiences Since 2013',
     mission: 'Our Mission',
     missionText: 'To transform your vision into reality through exceptional event management services. We believe every event should be a masterpiece that reflects your unique style and exceeds your expectations.',
@@ -80,7 +80,7 @@ export const en = {
     info: {
       address: '123 Luxury Avenue, Premium District, Dubai, UAE',
       phone: '+971 50 123 4567',
-      email: 'hello@azzeraevents.com',
+      email: 'hello@alwadievents.com',
       hours: 'Sun - Thu: 9:00 AM - 6:00 PM'
     }
   },
