@@ -299,7 +299,7 @@ export function Home() {
                 {t('home.whyChooseTitle')}
                 <span className="text-gold-500">.</span>
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-6 ">
                 {(t('home.whyChooseItems', { returnObjects: true }) as string[]).map((item: string, index: number) => (
                   <motion.div 
                     key={index}
@@ -309,7 +309,7 @@ export function Home() {
                     viewport={{ once: true }}
                     className="flex items-start space-x-4 rtl:space-x-reverse p-4 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-gold-500/10 rounded-full flex items-center justify-center mt-1">
+                    <div className="flex-shrink-0 w-7 h-7 bg-gold-500/10 rounded-full flex items-center justify-center mt-0">
                       <CheckCircle className="w-5 h-5 text-gold-500" />
                     </div>
                     <span className="text-gray-300 text-lg">{item}</span>

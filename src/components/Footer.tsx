@@ -16,7 +16,7 @@ export function Footer() {
               <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center mb-4">
                 <span className="text-white font-bold text-lg">A</span>
               </div>
-              <span className="text-xl font-bold">Azzera Events</span>
+              <span className="text-xl font-bold">Alwadi Events</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Creating extraordinary experiences with precision, elegance, and unmatched attention to detail.
@@ -89,7 +89,7 @@ export function Footer() {
         <div className="bg-black border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              2024 Azzera Events. All rights reserved.
+              2024 Alwadi Events. All rights reserved.
             </p>
             <div className="flex space-x-6 rtl:space-x-reverse text-sm text-gray-400">
               <Link to="#" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>

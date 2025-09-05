@@ -179,7 +179,7 @@ export function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {(t('about.valuesItems', { returnObjects: true }) as string[] || [
               'Integrity in every step',
               'Creativity that inspires',
@@ -194,9 +194,9 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-900 p-6 rounded-xl border border-gold-500/10 hover:border-gold-500/30 transition-all duration-300 flex items-start space-x-4 group hover:bg-gray-800/50"
+                className="bg-gray-900 p-5 rounded-xl border border-gold-500/10 hover:border-gold-500/30 transition-all duration-300 flex items-start space-x-4 group hover:bg-gray-800/50"
               >
-                <div className="flex-shrink-0 w-8 h-8 bg-gold-500/10 rounded-full flex items-center justify-center mt-1">
+                <div className="flex-shrink-0 w-6 h-6 bg-gold-500/10 rounded-full flex items-center justify-center mt-1">
                   <CheckCircle className="w-5 h-5 text-gold-500" />
                 </div>
                 <span className="text-gray-300 text-lg group-hover:text-white transition-colors">{value}</span>
